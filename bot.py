@@ -38,7 +38,7 @@ def main():
     parser.add_argument("-H", "--hostname", type=str, help="hostname of the RedMimicry server", required=True)
     parser.add_argument("-t", "--auth-token", type=str, help="RedMimicry server auth-token", required=True)
     parser.add_argument("-v", "--verbose", help="verbose output", action="store_true")
-    parser.add_argument("-s", "--tls;", help="enable TLS", action="store_true")
+    parser.add_argument("-s", "--tls", help="enable TLS", action="store_true")
     args = parser.parse_args()
     logging_level = logging.INFO
     if args.verbose:
@@ -47,7 +47,7 @@ def main():
     hostname = args.hostname
     auth_token = args.auth_token
     logging.info("connecting to %s" % hostname)
-    api = redmimicry.Api(hostname, auth_token, args.ssl)
+    api = redmimicry.Api(hostname, auth_token, args.tls)
     bot = redmimicry.SimpleBot(api)
 
     bot.on_connect(operator_simulation)
