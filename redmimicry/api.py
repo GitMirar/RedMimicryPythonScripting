@@ -19,6 +19,10 @@ class Api:
         self.auth_token = auth_token
         self.host = host
         self.tls = tls
+        self.active = True
+
+    def stop(self):
+        self.active = False
 
     def do_api_request(self, action, parameters):
         """Perform a POST request against the RedMimicry HTTP API.
@@ -74,7 +78,7 @@ class Api:
             "command_id" : command_id ,
             })
         completed = False
-        while not completed:
+        while not completed and self.active:
             results = self.get_shell_command_results(implant_id, command_id)
             for r in results:
                 if r["completed"]:

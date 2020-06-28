@@ -43,6 +43,7 @@ class SimpleBot(threading.Thread):
 
     def stop(self):
         self.active = False
+        self.api.stop()
 
     def on_connect(self, on_connect_function):
         with self.on_connect_functions_lock:

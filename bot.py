@@ -55,6 +55,7 @@ def main():
     bot.start()
 
     def sigint_handler(sig, frame):
+        logging.info("stoping ...")
         bot.stop()
         bot.join()
         sys.exit(0)
