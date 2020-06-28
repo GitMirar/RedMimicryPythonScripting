@@ -11,7 +11,7 @@ import redmimicry
 
 def operator_simulation(api: redmimicry.Api, implant):
     # check that we are running in the last stage of the breach emulation by checking process image
-    if implant["image"] == "svchost.exe":
+    if not implant["image"] == "svchost.exe":
         return
     implant_id = implant["id"]
 
