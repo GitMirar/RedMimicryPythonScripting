@@ -23,7 +23,7 @@ def operator_simulation(api: redmimicry.Api, implant):
         "quser.exe",
         "ipconfig /all",
         "systeminfo",
-        "netstat -abno -p tcp",
+        "netstat /abno /p tcp",
         "tasklist /v",
         "net accounts",
         "net accounts /domain",
