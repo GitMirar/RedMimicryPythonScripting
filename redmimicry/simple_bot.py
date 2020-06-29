@@ -38,7 +38,7 @@ class SimpleBot(threading.Thread):
                 for r in self.results:
                     yield r
                 self.results.clear()
-            self.results_lock.release()
+                self.results_lock.release()
             time.sleep(0.1)
 
     def stop(self):
