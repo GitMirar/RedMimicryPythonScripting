@@ -20,10 +20,14 @@ def operator_simulation(api: redmimicry.Api, implant):
 
     # perform some well known enumeration commands
     commands = [
-        "dir c:\\*vnc.ini /s /b",
-        "dir c:\\*ultravnc.ini /s /b",
-        "dir c:\\ /s /b | findstr /si *vnc.ini",
-        "reg query \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\Currentversion\\Winlogon\""
+        "quser.exe",
+        "ipconfig /all",
+        "systeminfo",
+        "netstat -abno -p tcp",
+        "tasklist /v",
+        "net accounts",
+        "net accounts /domain",
+        "net view /domain",
         ]
     results = [ api.shell(implant_id, "shell %s" % cmd) for cmd in commands ]
 
