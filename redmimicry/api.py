@@ -47,6 +47,11 @@ class Api:
         """
         return self.do_api_request("payload/assessment_agent", { "arch": "x64" }).content
 
+    def get_injectable_agent(self):
+        """Download and return an injectable agent payload.
+        """
+        return self.do_api_request("payload/unstaged", { "type": "injectable_core","arch": "x64" }).content
+
     def get_shell_command_results(self, implant_id, command_id):
         """Return results of a given shell command identified by the command_id.
         """
