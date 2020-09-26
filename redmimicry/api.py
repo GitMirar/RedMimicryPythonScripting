@@ -60,6 +60,8 @@ class Api:
             "command_id": command_id, 
             "index": 0
             }).json()
+        if response == None:
+            response = []
         return response
 
     def get_report(self):
